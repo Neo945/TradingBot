@@ -8,11 +8,12 @@ from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls', namespace='main')),
-    path('', include('user.urls', namespace='user')),
+    path('main/', include('main.urls', namespace='main')),
+    path('user/', include('user.urls', namespace='user')),
     path('accounts/', include('allauth.urls')),
     path('', TemplateView.as_view(template_name="index.html")),
-    path('logout', LogoutView.as_view())
+    path('chat', TemplateView.as_view(template_name="chat.html")),
+    path('logout/', LogoutView.as_view())
 ]
 
 if settings.DEBUG:
