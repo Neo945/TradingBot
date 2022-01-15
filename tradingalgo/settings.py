@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import alpaca_trade_api as tradeapi
+
+SEC_KEY = '' # Enter Your Secret Key Here
+PUB_KEY = '' # Enter Your Public Key Here
+BASE_URL = 'https://paper-api.alpaca.markets' # This is the base URL for paper trading
+API = tradeapi.REST(key_id= PUB_KEY, secret_key=SEC_KEY, base_url=BASE_URL) # For real trading, don't enter a base_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'user',
     'corsheaders',
     'rest_framework',
     'django.contrib.sites',
